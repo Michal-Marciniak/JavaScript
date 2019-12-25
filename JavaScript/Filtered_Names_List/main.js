@@ -10,15 +10,11 @@ function filterNames(){
     
     let li = document.querySelectorAll('li.collection-item');
 
-    for(i=0; i<li.length; i++) {
-        
-        let matchedValue = li[i].getElementsByTagName('div')[0].textContent.toUpperCase();
-
-        // If input value matched
-        if(matchedValue.indexOf(filteredInput) > -1) {  // or  if(matchedValue.includes(filteredInput))
-            li[i].style.display = '';
+    li.forEach(listItem => {
+        if(listItem.getElementsByTagName('div')[0].textContent.toUpperCase().indexOf(filteredInput) > -1) {
+            listItem.style.display = '';
         } else {
-            li[i].style.display = 'none';
+            listItem.style.display = 'none';
         }
-    }
+    })
 }
