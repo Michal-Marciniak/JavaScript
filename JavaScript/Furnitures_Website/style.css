@@ -1,0 +1,295 @@
+@import url("https://fonts.googleapis.com/css?family=Lato:400,700");
+
+:root {
+  --primaryColor: #f09d51;
+  --mainWhite: #fff;
+  --mainBlack: #222;
+  --mainGrey: #d9d9d9;
+  --mainSpacing: 0.1rem;
+  --mainTransition: all 0.3s linear;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Lato", sans-serif;
+  color: var(--mainBlack);
+  background: var(--mainWhite);
+  overflow-x: hidden;
+}
+
+/*----------------------- Navbar --------------------------*/
+
+.navbar {
+  position: sticky;
+  top: 0;
+  height: 60px;
+  width: 100%;
+  background: var(--mainGrey);
+  z-index: 1;
+  align-items: center;
+  display: flex;
+}
+.navbar--center {
+  margin: 0 auto;
+  width: inherit;
+  max-width: 1200px;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 1.5rem;
+  display: flex;
+}
+.navbar__bar-icon {
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+.navbar__logo {
+  transform: scale(1.3);
+}
+.navbar__cart-button {
+  position: relative;
+  align-items: center;
+  display: flex;
+  cursor: pointer;
+}
+.navbar__trolley_icon {
+  font-size: 1.5rem;
+}
+.navbar__cart-items {
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  background: var(--primaryColor);
+  border-radius: 30%;
+  color: var(--mainWhite);
+  padding: 0 calc(3 * var(--mainSpacing));
+}
+
+/*----------------------- End of Navbar --------------------------*/
+
+/*----------------------- Header --------------------------*/
+.hero {
+  min-height: calc(100vh - 60px);
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  background: url("./images/hero-bcg.jpeg") center/cover no-repeat;
+}
+.banner {
+  text-align: center;
+  display: block;
+  background: rgb(255, 255, 255, 0.7);
+  padding: 2rem;
+  margin: 0 1.5rem;
+}
+.banner__title {
+  text-transform: uppercase;
+  font-size: 3.4rem;
+  letter-spacing: var(--mainSpacing);
+  margin-bottom: 2.5rem;
+}
+.banner__button {
+  background: var(--primaryColor);
+  color: var(--mainBlack);
+  padding: 1rem 3rem;
+  text-transform: uppercase;
+  letter-spacing: var(--mainSpacing);
+  font-size: 1.2rem;
+  border: calc(2 * var(--mainSpacing)) solid var(--primaryColor);
+  text-align: center;
+  transition: var(--mainTransition);
+  cursor: pointer;
+}
+.banner__button:hover {
+  background: transparent;
+  color: var(--mainBlack);
+}
+/*----------------------- End of Header --------------------------*/
+
+/*----------------------- Products --------------------------*/
+.products {
+  padding: 4rem 0;
+}
+.section__title h2 {
+  text-align: center;
+  font-size: 2.5rem;
+  letter-spacing: var(--mainSpacing);
+  text-transform: capitalize;
+  margin-bottom: 5rem;
+}
+.products--center {
+  width: 90vw;
+  margin: 0 auto;
+  max-width: 1170px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  grid-column-gap: 2rem;
+  grid-row-gap: 2.5rem;
+}
+.img-container {
+  position: relative;
+  overflow: hidden;
+}
+.product__button {
+  position: absolute;
+  top: 70%;
+  right: 0;
+  background: var(--primaryColor);
+  color: var(--mainBlack);
+  transform: translateX(101%);
+  text-transform: uppercase;
+  letter-spacing: var(--mainSpacing);
+  border: none;
+  padding: 0.5rem 0.7rem;
+  transition: var(--mainTransition);
+  font-weight: bold;
+  cursor: pointer;
+}
+.product__button:hover {
+  color: var(--mainWhite);
+}
+.img-container:hover .product__button {
+  transform: translateX(0);
+}
+.fa-shopping-cart {
+  margin-right: 0.5rem;
+}
+.product__img {
+  width: 100%;
+  min-height: 12rem;
+  max-height: 16rem;
+  transition: var(--mainTransition);
+}
+.product__img:hover {
+  opacity: 0.5;
+}
+.product__description {
+  text-align: center;
+  font-size: 1.1rem;
+  text-transform: capitalize;
+  letter-spacing: var(--mainSpacing);
+  margin-top: 1rem;
+}
+.product__price {
+  text-align: center;
+  letter-spacing: var(--mainSpacing);
+  color: var(--primaryColor);
+  margin-top: 0.3rem;
+  font-weight: bolder;
+}
+/*----------------------- End of Products --------------------------*/
+
+/*----------------------- Cart --------------------------*/
+.cart__overlay {
+  position: fixed;
+  background: rgb(226, 142, 16, 0.6);
+  top: 0;
+  right: 0;
+  width: 100vw;
+  height: 100vh;
+  transition: var(--mainTransition);
+  z-index: 2;
+  visibility: hidden;
+}
+.cart {
+  position: fixed;
+  top: 0;
+  right: 0;
+  height: 100%;
+  width: 30%;
+  background: var(--mainGrey);
+  overflow-y: scroll;
+  padding: 1.5rem;
+  z-index: 3;
+  transform: translateX(101%);
+}
+.close-cart-smoothy {
+  transition: var(--mainTransition);
+}
+.show-cart {
+  transform: translateX(0);
+}
+.show-cart-overlay {
+  visibility: visible;
+}
+.close-cart-button {
+  font-size: 1.7rem;
+  cursor: pointer;
+}
+.cart__title {
+  text-align: center;
+  font-size: 2.3rem;
+  text-transform: capitalize;
+  letter-spacing: var(--mainSpacing);
+  margin-bottom: 2rem;
+}
+@media screen and (min-width: 768px) {
+  .cart {
+    width: 30vw;
+    min-width: 450px;
+  }
+}
+.cart__items {
+  display: block;
+}
+.cart__item {
+  align-items: center;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  grid-column-gap: 1.5rem;
+  margin: 1rem 0;
+}
+.cart__item__img {
+  width: 6vw;
+  height: 6vw;
+}
+.cart__item__content {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  padding: 0 0.5rem;
+  line-height: 1.7rem;
+}
+.cart__item--remove {
+  cursor: pointer;
+}
+.cart__item--remove:hover {
+  color: var(--primaryColor);
+}
+/*----------------------- Cart Footer --------------------------*/
+.cart__footer {
+  margin: 3rem 0;
+  text-transform: capitalize;
+  text-align: center;
+  letter-spacing: var(--mainSpacing);
+}
+.clear-cart-button {
+  margin-top: 1rem;
+  border: 2px solid var(--primaryColor);
+  background: rgb(233, 147, 50);
+  padding: 1rem 4rem;
+  text-transform: uppercase;
+  font-size: 0.9rem;
+  letter-spacing: var(--mainSpacing);
+  cursor: pointer;
+}
+.clear-cart-button:hover {
+  background: transparent;
+}
+.cart__icons {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  line-height: 1.5rem;
+}
+.fa-chevron-up,
+.fa-chevron-down {
+  color: var(--primaryColor);
+  cursor: pointer;
+}
+/*----------------------- End of Footer --------------------------*/
+/*----------------------- End of Cart --------------------------*/
